@@ -1,0 +1,257 @@
+@import 'utilities';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#main-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        rgb(206, 221, 232),
+        rgb(131, 161, 188)
+    );
+}
+
+.message-board {
+    background-color: #fff;
+    width: 400px;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.3rem 1.5rem;
+    background: $title-color;
+
+    &-content {
+        display: flex;
+        align-items: center;
+
+
+        &::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: $light-color;
+        }
+    }
+    
+
+    h1 {
+        font-size: 15px;
+        text-transform: uppercase;
+        margin-left: 1rem;
+        color: $light-color;
+    }
+
+    .btn-back {
+        position: relative;
+        background: $title-color;
+        visibility: hidden;
+
+        &:hover::before,
+        &:hover::after {
+            background: #fff;
+        }
+    }
+}
+
+.btn-back:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    display: block;
+    right: 0px;
+    width: 20px;
+    height: 2px;
+    transform: rotate(45deg);
+    background: $line-color;
+    visibility: visible;
+    cursor: pointer;
+
+}
+
+.btn-back:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0px;
+    display: block;
+    width: 20px;
+    height: 2px;
+    transform: rotate(-45deg);
+    background: $line-color;
+    visibility: visible;
+    cursor: pointer;
+
+}
+
+.board {
+    padding: 1rem 1.5rem;
+}
+
+.board-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+
+    &::before {
+        content: '';
+        width: 50%;
+        background: $line-color;
+        height: 1px;
+    }
+
+    &::after {
+        content: '';
+        width: 50%;
+        background: $line-color;
+        height: 1px;
+    }
+
+    h2 {
+        font-size: 12px;
+        margin: 0 10px;
+        text-transform: uppercase;
+        color: $line-color;
+    }
+}
+
+.message-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+
+    
+    p {
+        color: $line-color;
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+    
+    div {
+        position: relative;
+        padding: 0.7rem;
+        background: $left-color;
+        border-radius: 5px;
+        padding-right: 4rem;
+        
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -6px;
+            width: 0; 
+            height: 0; 
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;     
+            border-bottom: 8px solid $left-color;
+            transform: rotate(180deg);
+          }
+
+        h3 {
+            font-size: 14px;
+        }
+    }
+
+    .time + div {
+        padding-right: 1rem;
+    }
+}
+
+.message-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 20px;
+
+    p {
+        color: $p-color;
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+    
+    div {
+        position: relative;
+        padding: 0.7rem;
+        background: $right-color;
+        border-radius: 5px;
+
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -6px;
+            width: 0; 
+            height: 0; 
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;     
+            border-bottom: 8px solid $right-color;
+            transform: rotate(180deg);
+          }
+
+        h3 {
+            font-size: 14px;
+        }
+
+    }
+
+    .user-block {
+        background: $block-color;
+
+        &::before {
+            display: none;
+        }
+    }
+}
+
+.message-writer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid $line-color;
+    margin: 0 1.5rem;
+    
+    form {
+        width: 100%;
+    }
+    
+    input {
+        padding: 1rem 1rem 1rem 0;
+        outline: 0;
+        width: 100%;
+        border: none;
+
+        &::placeholder {
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+        }
+    }
+
+    button {
+        border: none;
+        color: $title-color;
+        font-size: 15px;
+        background: #fff;
+        font-weight: bolder;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}
+
